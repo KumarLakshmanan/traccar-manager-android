@@ -58,6 +58,8 @@ class StartFragment : Fragment(), View.OnClickListener {
                 try {
                     val uri = Uri.parse(urls[0]).buildUpon().appendEncodedPath("api/server").build()
                     var url = uri.toString()
+                    println("url")
+                    println(url)
                     var urlConnection: HttpURLConnection? = null
                     for (i in 0 until MAX_REDIRECTS) {
                         val resourceUrl = URL(url)
@@ -78,6 +80,8 @@ class StartFragment : Fragment(), View.OnClickListener {
                         responseBuilder.append(line)
                     }
                     JSONObject(responseBuilder.toString())
+                    println("responseBuilder")
+                    println(responseBuilder.toString())
                     return true
                 } catch (e: IOException) {
                     Log.w(TAG, e)
