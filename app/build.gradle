@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/lakshmananr/Desktop/gitlab/vahupuapp/navic/android/app/upload-keystore.jks')
+            storePassword 'srini#1980'
+            keyPassword 'srini#1980'
+            keyAlias 'nirals'
+        }
+    }
     compileSdkVersion 33
 
     defaultConfig {
@@ -11,6 +19,7 @@ android {
         versionCode 35
         versionName '3.4'
         multiDexEnabled true
+        signingConfig signingConfigs.release
     }
     namespace 'org.traccar.manager'
 
